@@ -2,7 +2,7 @@
 * @Author: Xier
 * @Date:   2015-02-02 12:35:19
 * @Last Modified by:   Xier
-* @Last Modified time: 2015-02-02 16:04:12
+* @Last Modified time: 2015-02-02 16:22:50
  */
 
 package gika
@@ -27,7 +27,7 @@ func TestReadDocument(t *testing.T) {
 	// Create io.Writer
 	ws := &bytes.Buffer{}
 
-	err = ReadDocument(f, ws)
+	err = DocToText(f, ws)
 	assert.NoError(t, err)
 	assert.True(t, ws.Len() > 0)
 }

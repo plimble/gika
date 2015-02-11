@@ -2,13 +2,14 @@
 * @Author: Xier
 * @Date:   2015-02-02 12:35:19
 * @Last Modified by:   Xier
-* @Last Modified time: 2015-02-02 16:22:50
+* @Last Modified time: 2015-02-03 09:57:30
  */
 
 package gika
 
 import (
 	"bytes"
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
@@ -16,7 +17,7 @@ import (
 
 func TestReadDocument(t *testing.T) {
 	// Create io.Reader
-	f, err := os.Open("./doc-example/file.pdf")
+	f, err := os.Open("./doc-example/index.html")
 	defer func() {
 		f.Close()
 	}()
@@ -30,6 +31,7 @@ func TestReadDocument(t *testing.T) {
 	err = DocToText(f, ws)
 	assert.NoError(t, err)
 	assert.True(t, ws.Len() > 0)
+	fmt.Println(ws.String())
 }
 
 func TestIsSupport(t *testing.T) {
